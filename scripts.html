@@ -1,0 +1,437 @@
+
+<!-- head -->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" />
+
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bxslider/4.2.5/jquery.bxslider.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- before closing body tags -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+
+
+<script>
+jQuery(document).ready(function ($) {
+  //$('a').click(function (e) {
+    //  e.preventDefault();
+      //$('a').css('color', 'red');
+  //});
+
+  $(window).scroll(function() {
+if ($(this).scrollTop() > 100) {
+    $('.Header-nav-inner').addClass("sticky");
+  }
+  else{
+    $('.Header-nav-inner').removeClass("sticky");
+  }
+});
+});
+
+
+
+
+  //FADE IN ON SCROLL
+
+  /*Interactivity to determine when an animated element in in view. In view elements trigger our animation*/
+$(document).ready(function() {
+
+//window and animation items
+var animation_elements = $.find('.fade1, .fade2, .fade3, .fade4, .fade5, .fade6, .fade7, .fade8, .card-flip');
+var web_window = $(window);
+
+//check to see if any animation containers are currently in view
+function check_if_in_view() {
+//get current window information
+var window_height = web_window.height();
+var window_top_position = web_window.scrollTop();
+var window_bottom_position = (window_top_position + window_height);
+
+//iterate through elements to see if its in view
+$.each(animation_elements, function() {
+
+  //get the element's information
+  var element = $(this);
+  var element_height = $(element).outerHeight();
+  var element_top_position = $(element).offset().top;
+  var element_bottom_position = (element_top_position + element_height);
+
+  //check to see if this current container is visible (its viewable if it exists between the viewable space of the viewport)
+  if ((element_bottom_position >= window_top_position) && (element_top_position <= window_bottom_position)) {
+    element.addClass('in-view');
+  } else {
+
+  }
+});
+
+}
+
+//on or scroll, detect elements in view
+$(window).on('scroll resize', function() {
+  check_if_in_view()
+})
+//trigger our scroll event on initial load
+$(window).trigger('scroll');
+
+});
+
+
+
+
+
+  //SLIDE ANIMATIONS
+  /*Interactivity to determine when an animated element in in view. In view elements trigger our animation*/
+$(document).ready(function() {
+
+//window and animation items
+var animation_elements = $.find('.animation-element');
+var web_window = $(window);
+
+//check to see if any animation containers are currently in view
+function check_if_in_view() {
+//get current window information
+var window_height = web_window.height();
+var window_top_position = web_window.scrollTop();
+var window_bottom_position = (window_top_position + window_height);
+
+//iterate through elements to see if its in view
+$.each(animation_elements, function() {
+
+  //get the element's information
+  var element = $(this);
+  var element_height = $(element).outerHeight();
+  var element_top_position = $(element).offset().top;
+  var element_bottom_position = (element_top_position + element_height);
+
+  //check to see if this current container is visible (its viewable if it exists between the viewable space of the viewport)
+  if ((element_bottom_position >= window_top_position) && (element_top_position <= window_bottom_position)) {
+    element.addClass('in-view');
+  } else {
+
+  }
+});
+
+}
+
+//on or scroll, detect elements in view
+$(window).on('scroll resize', function() {
+  check_if_in_view()
+})
+//trigger our scroll event on initial load
+$(window).trigger('scroll');
+
+});
+
+
+
+
+
+
+
+
+
+  //SPEAKERS SLIDER
+
+  $.fn.nextOrFirst = function(selector){
+  var next = this.next(selector);
+  return (next.length) ? next : this.prevAll(selector).last();
+};
+
+$.fn.prevOrLast = function(selector){
+  var prev = this.prev(selector);
+  return (prev.length) ? prev : this.nextAll(selector).last();
+};
+
+function slider() {
+  var activeSlide = $(".active");
+
+  activeSlide
+    .removeClass("active")
+    .nextOrFirst()
+    .addClass("active");
+}
+
+
+function controls() {
+  var control = $(".controls");
+
+  control.on('click', '.prev', function() {
+    $(".active")
+    .removeClass("active")
+    .prevOrLast()
+    .addClass("active");
+   });
+
+  control.on('click', '.next', function() {
+    $(".active")
+    .removeClass("active")
+    .nextOrFirst()
+    .addClass("active");
+   });
+ }
+controls();
+
+
+
+
+
+
+  // TOPICS CHANGE
+
+  $('.show-description1').click(function() {
+    $('.description').removeClass('description-active');
+    $('.description1').addClass('description-active');
+  });
+
+  $('.show-description2').click(function() {
+    $('.description').removeClass('description-active');
+    $('.description2').addClass('description-active');
+  });
+
+  $('.show-description3').click(function() {
+    $('.description').removeClass('description-active');
+    $('.description3').addClass('description-active');
+  });
+
+  $('.show-description4').click(function() {
+    $('.description').removeClass('description-active');
+    $('.description4').addClass('description-active');
+  });
+
+  $('.show-description5').click(function() {
+    $('.description').removeClass('description-active');
+    $('.description5').addClass('description-active');
+  });
+
+
+
+
+
+
+
+
+ $.fn.nextOrFirst2 = function(selector){
+  var next = this.next(selector);
+  return (next.length) ? next : this.prevAll(selector).last();
+};
+
+$.fn.prevOrLast2 = function(selector){
+  var prev = this.prev(selector);
+  return (prev.length) ? prev : this.nextAll(selector).last();
+};
+
+function slider2() {
+  var activeSlide2 = $(".description-active");
+
+  activeSlide2
+    .removeClass("description-active")
+    .nextOrFirst()
+    .addClass("description-active");
+}
+
+
+function controls2() {
+  var control2 = $(".description-controls");
+
+  control2.on('click', '.prev2', function() {
+    $(".description-active")
+    .removeClass("description-active")
+    .prevOrLast()
+    .addClass("description-active");
+   });
+
+  control2.on('click', '.next2', function() {
+    $(".description-active")
+    .removeClass("description-active")
+    .nextOrFirst()
+    .addClass("description-active");
+   });
+ }
+controls2();
+
+
+
+
+    $('.show-description').on('click',function(){
+    if($('.description1').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description1').css('color', '#141515');
+    };
+      if($('.description2').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description2').css('color', '#141515');
+    };
+      if($('.description3').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description3').css('color', '#141515');
+    };
+      if($('.description4').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description4').css('color', '#141515');
+    };
+      if($('.description5').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description5').css('color', '#141515');
+    };
+  });
+
+  $('.next2').on('click',function(){
+    if($('.description5').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description1').css('color', '#141515');
+    };
+      if($('.description1').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description2').css('color', '#141515');
+    };
+      if($('.description2').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description3').css('color', '#141515');
+    };
+      if($('.description3').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description4').css('color', '#141515');
+    };
+      if($('.description4').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description5').css('color', '#141515');
+    };
+  });
+
+
+  $('.prev2').on('click',function(){
+    if($('.description5').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description4').css('color', '#141515');
+    };
+      if($('.description1').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description5').css('color', '#141515');
+    };
+      if($('.description2').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description1').css('color', '#141515');
+    };
+      if($('.description3').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description2').css('color', '#141515');
+    };
+      if($('.description4').hasClass("description-active")){
+      	$('.show-description').css('color', 'white');
+  		$('.show-description3').css('color', '#141515');
+    };
+  });
+
+
+
+
+
+
+
+  // TESIMONIALS CHANGE
+
+  $.fn.nextOrFirst3 = function(selector){
+  var next = this.next(selector);
+  return (next.length) ? next : this.prevAll(selector).last();
+};
+
+$.fn.prevOrLast3 = function(selector){
+  var prev = this.prev(selector);
+  return (prev.length) ? prev : this.nextAll(selector).last();
+};
+
+function slider3() {
+  var activeSlide3 = $(".testimonial-active");
+
+  activeSlide3
+    .removeClass("testimonial-active")
+    .nextOrFirst()
+    .addClass("testimonial-active");
+}
+
+setInterval(slider3, 4000);
+
+
+
+
+
+
+
+
+  $.fn.nextOrFirst4 = function(selector){
+  var next = this.next(selector);
+  return (next.length) ? next : this.prevAll(selector).last();
+};
+
+$.fn.prevOrLast4 = function(selector){
+  var prev = this.prev(selector);
+  return (prev.length) ? prev : this.nextAll(selector).last();
+};
+
+function slider4() {
+  var activeSlide4 = $(".award-active");
+
+  activeSlide4
+    .removeClass("award-active")
+    .nextOrFirst()
+    .addClass("award-active");
+}
+
+
+function controls4() {
+  var control4 = $(".award-controls");
+
+  control4.on('click', '.prev4', function() {
+    $(".award-active")
+    .removeClass("award-active")
+    .prevOrLast()
+    .addClass("award-active");
+   });
+
+  control4.on('click', '.next4', function() {
+    $(".award-active")
+    .removeClass("award-active")
+    .nextOrFirst()
+    .addClass("award-active");
+   });
+ }
+controls4();
+
+
+
+
+
+
+
+
+  //SPEAKER BIO FUNCTIONALITY
+
+
+  $('.box-container').click(function() {
+    $('.image-overlay').removeClass('overlay-active');
+    $('.team-box').css('margin-top', '0px');
+    $('.bio').css('margin-top', '0px');
+    $(this).find('.team-box').css('margin-top', -$('.bio').height());
+    $(this).find('.bio').css('margin-top', $(this).width());
+    $(this).find('.image-overlay').addClass('overlay-active');
+  });
+
+
+  </script>
